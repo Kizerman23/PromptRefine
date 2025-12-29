@@ -14,7 +14,7 @@ A premium browser extension (Chrome, Brave, Edge) that enhances your AI prompts 
   - **Off**: Temporarily disable the extension for the current site/model without uninstalling.
 - **Extreme ChatGPT Optimization**: Uses incremental typing ($O(N)$ logic) to eliminate lag even with very long prompts.
 - **Precision Revert (Undo)**: Instantly restore your original text if the enhancement isn't what you wanted.
-- **Smart Site-Specific Control**: Easily toggle the extension ON or OFF for specific models (ChatGPT, Gemini, Claude, NotebookLM) directly from the UI.
+- **Smart Site-Specific Control**: Easily toggle the extension ON or OFF for specific models directly from the UI, or use native browser **Site Access** settings for advanced permission management.
 - **Auth Detection**: Built-in alerts if you're logged out of PromptCowboy.ai.
 - **Premium Glassmorphism UI**: A sleek, modern control panel that blends into any AI interface.
 

@@ -41,6 +41,15 @@ One of the best features is the ability to **selectively disable** the extension
 > [!TIP]
 > If you are working in a specific AI model (like Gemini) and don't want the enhancer to trigger there, simply click the **"Off"** button in the floating panel. This allows you to keep the extension active on ChatGPT while it stays quiet on other sites.
 
+### 🔒 Native Browser Control (Site Access)
+For even more privacy or control, you can use the browser's built-in settings:
+1. Right-click the extension icon in your toolbar.
+2. Select **"This can read and change site data"**.
+3. Choose between:
+   - **All sites**: The extension runs everywhere.
+   - **On [site name]**: The extension only runs on the current site.
+   - **When you click the extension**: The extension is only active when you manually click it.
+
 ---
 
 ## 🛠️ Troubleshooting
