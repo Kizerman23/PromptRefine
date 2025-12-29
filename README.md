@@ -21,9 +21,11 @@ A premium browser extension (Chrome, Brave, Edge) that enhances your AI prompts 
 ## 🛠 Project Structure
 
 - `manifest.json`: Extension configuration, permissions, and script declarations.
-- `background.js`: Handles API communication with PromptCowboy.ai, streaming data chunks via Ports.
-- `content.js`: Manages the UI, user interaction, text injection, and site-specific event synchronization.
-- `icons/`: (Pending) Extension assets.
+- `src/`:
+  - `background.js`: Handles API communication with PromptCowboy.ai.
+  - `content.js`: Manages the UI, user interaction, and text injection.
+- `assets/icons/`: Extension assets and logos.
+- `INSTALL_GUIDE.md`: Step-by-step instructions for users.
 
 ## ⚡ Technical Highlights
 
