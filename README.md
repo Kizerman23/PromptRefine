@@ -3,7 +3,7 @@
 A premium browser extension (Chrome, Brave, Edge) that enhances your AI prompts in real-time using the **PromptCowboy.ai** API. Optimized for speed, smoothness, and reliability across all major AI platforms.
 
 > [!IMPORTANT]
-> **New to the extension?** Check out the [Installation & Usage Guide](file:///c:/Users/Kizer/.gemini/antigravity/scratch/PromptRefine/INSTALL_GUIDE.md) for a quick start.
+> **New to the extension?** Check out the [Installation & Usage Guide](./INSTALL_GUIDE.md) for a quick start.
 
 ## Key Features
 
@@ -42,7 +42,7 @@ Bypasses React/framework-level "guards" to ensure that the site's state is corre
 2. Open Chrome and go to `chrome://extensions/`.
 3. Enable **"Developer mode"** (top right toggle).
 4. Click **"Load unpacked"** and select the project folder.
-5. Login to [PromptCowboy.ai](https://www.promptcowboy.ai/) to start enhancing!
+5. **Important**: Login to [PromptCowboy.ai](https://www.promptcowboy.ai/login) to enable the enhancement features.
 
 ## ⚙️ Development & Testing
 

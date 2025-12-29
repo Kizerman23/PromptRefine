@@ -16,8 +16,9 @@ Since this is a custom premium tool, you'll need to load it manually into your b
 3.  **Enable Developer Mode**: Flip the switch (usually in the top right or left) to "ON".
 4.  **Load the Extension**: Click the **"Load unpacked"** button in the top left.
 5.  **Select Folder**: Choose the `PromptRefine` folder you just downloaded.
+6.  **Login Required**: Navigate to [PromptCowboy.ai/login](https://www.promptcowboy.ai/login) and log in to your account. **The extension will not work without an active login.**
 
-**Done!** You should see the PromptCowboy icon in your extensions list.
+**Done!** You should see the PromptCowboy icon in your extensions list and it's ready to enhance!
 
 ---
 
