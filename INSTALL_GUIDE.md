@@ -8,14 +8,17 @@ Welcome to the ultimate AI prompt enhancement experience! This guide will help y
 
 Since this is a custom premium tool, you'll need to load it manually into your browser (Chrome, Brave, Edge, or any Chromium-based browser):
 
-1.  **Download & Extract**: Download the project folder to your computer.
+1.  **Download the Extension**:
+    - Look for the green **< > Code** button at the top right of this page.
+    - Click it and select **Download ZIP** from the menu.
+    - **Extract**: Find the downloaded ZIP file on your computer, right-click it, and select "Extract All" (or "Unzip"). Remember where you saved this folder!
 2.  **Open Extensions**: 
     - In **Chrome**: go to `chrome://extensions/`
     - In **Brave**: go to `brave://extensions/`
     - In **Edge**: go to `edge://extensions/`
 3.  **Enable Developer Mode**: Flip the switch (usually in the top right or left) to "ON".
 4.  **Load the Extension**: Click the **"Load unpacked"** button in the top left.
-5.  **Select Folder**: Choose the `PromptRefine` folder you just downloaded.
+5.  **Select Folder**: Click **once** on the `PromptRefine-main` (or just `PromptRefine`) folder to highlight it (do not double-click to enter inside). Then click the "Select Folder" button.
 6.  **Login Required**: Navigate to [PromptCowboy.ai/login](https://www.promptcowboy.ai/login) and log in to your account. **The extension will not work without an active login.**
 
 **Done!** You should see the PromptCowboy icon in your extensions list and it's ready to enhance!
