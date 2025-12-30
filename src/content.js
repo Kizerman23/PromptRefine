@@ -66,19 +66,24 @@ function injectUI() {
             #cowboy-controls {
                 position: fixed;
                 bottom: 20px;
-                right: 20px;
+                right: 80px;
                 z-index: 9999;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
                 gap: 10px;
                 font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                cursor: grab;
+                user-select: none;
+            }
+            #cowboy-controls:active {
+                cursor: grabbing;
             }
             .cowboy-row {
-                background: rgba(255, 255, 255, 0.15);
+                background: rgba(20, 20, 20, 0.85);
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 12px;
                 padding: 4px;
                 display: flex;
@@ -90,11 +95,11 @@ function injectUI() {
                 border-radius: 8px;
                 border: none;
                 background: transparent;
-                color: #fff;
+                color: #e0e0e0;
                 cursor: pointer;
                 font-size: 11px;
                 font-weight: 500;
-                transition: all 0.2s;
+                transition: background 0.2s, color 0.2s; /* Removed all transition for drag perf */
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
             }
@@ -104,7 +109,7 @@ function injectUI() {
                 bottom: 120%;
                 left: 50%;
                 transform: translateX(-50%) translateY(10px);
-                background: rgba(0, 0, 0, 0.85);
+                background: rgba(0, 0, 0, 0.95);
                 backdrop-filter: blur(4px);
                 color: white;
                 padding: 6px 10px;
@@ -124,11 +129,14 @@ function injectUI() {
                 transform: translateX(-50%) translateY(0);
             }
             .cowboy-btn.active {
-                background: rgba(255, 255, 255, 0.25);
+                background: rgba(255, 255, 255, 0.15);
                 box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                color: #ffffff;
+                font-weight: 600;
             }
             .cowboy-btn:hover:not(.active) {
-                background: rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.08);
+                color: #ffffff;
             }
             #cowboy-revert {
                 display: none;
@@ -147,14 +155,65 @@ function injectUI() {
         </style>
         <button id="cowboy-revert" class="cowboy-btn">↩ Undo Enhancement</button>
         <div class="cowboy-row">
-            <button class="cowboy-btn ${currentMode === 'auto' ? 'active' : ''}" data-mode="auto" data-tooltip="שיפור ושליחה אוטומטית">Auto</button>
-            <button class="cowboy-btn ${currentMode === 'manual' ? 'active' : ''}" data-mode="manual" data-tooltip="שיפור והמתנה לבדיקה">Manual</button>
-            <button class="cowboy-btn ${currentMode === 'off' ? 'active' : ''}" data-mode="off" data-tooltip="כיבוי זמני של התוסף">Off</button>
+            <button class="cowboy-btn ${currentMode === 'auto' ? 'active' : ''}" data-mode="auto" data-tooltip="Auto Enhance & Send">Auto</button>
+            <button class="cowboy-btn ${currentMode === 'manual' ? 'active' : ''}" data-mode="manual" data-tooltip="Enhance & Review">Manual</button>
+            <button class="cowboy-btn ${currentMode === 'off' ? 'active' : ''}" data-mode="off" data-tooltip="Disable Extension">Off</button>
         </div>
     `;
     document.body.appendChild(container);
 
+    // Drag functionality
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    container.addEventListener("mousedown", dragStart);
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("mouseup", dragEnd);
+
+    function dragStart(e) {
+        // Prevent dragging if clicking a button
+        if (e.target.tagName === 'BUTTON') return;
+
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+
+        if (e.target === container || e.target.closest('.cowboy-row')) {
+            isDragging = true;
+        }
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            setTranslate(currentX, currentY, container);
+        }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
+    function dragEnd(e) {
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+    }
+
     container.addEventListener('click', (e) => {
+        // If we were dragging, don't trigger click
+        if (Math.abs(xOffset - (currentX || 0)) > 5 && isDragging) return;
+
         const mode = e.target.dataset.mode;
         if (mode) {
             currentMode = mode;
